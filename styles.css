@@ -1,0 +1,649 @@
+/* ═══════════════════════════════════════════════
+   DIANA'S MYSPACE — Nostalgic Profile Page
+   Tiled star bg + Pilot purple + Sanrio vibes
+   ═══════════════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --purple-bright: #8b5cf6;
+  --purple-medium: #7c3aed;
+  --purple-light:  #c4b5fd;
+  --pink-accent:   #ff6b9d;
+  --pink-soft:     #c4577a;
+  --warm-cream:    #f5ede3;
+  --warm-blush:    #e8c4b8;
+
+  --bg-section:    rgba(255, 255, 255, 0.92);
+  --bg-section-hover: rgba(255, 255, 255, 0.97);
+  --border-section: 2px solid var(--pink-accent);
+  --border-card:   rgba(255, 107, 157, 0.2);
+
+  --text-primary:  #1a1a2e;
+  --text-secondary:#4a4a6a;
+  --text-muted:    #8a8aaa;
+  --text-link:     #d63384;
+
+  --green-live:    #34d399;
+  --amber-internal:#fbbf24;
+
+  --radius-lg:     12px;
+  --radius-md:     8px;
+  --radius-sm:     6px;
+
+  --font-heading:  'Outfit', sans-serif;
+  --font-myspace:  'Comic Neue', cursive;
+  --font-mono:     'Space Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-heading);
+  background: #2A2A2A;
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── TILED STAR BACKGROUND ─── */
+#star-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: url('https://web.archive.org/web/20140705232956im_/http://www.fillster.com/images/backgrounds/687q.gif') repeat fixed;
+  background-color: #c9a352;
+}
+
+/* ═══════════════════════════════════════
+   MYSPACE NAV BAR
+   ═══════════════════════════════════════ */
+.ms-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 2px solid var(--pink-accent);
+  padding: 0 1rem;
+}
+
+.ms-nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+}
+
+.ms-logo {
+  font-family: var(--font-myspace);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.ms-logo-accent {
+  color: var(--pink-accent);
+}
+
+.ms-nav-links {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.ms-nav-link {
+  font-family: var(--font-myspace);
+  font-size: 0.85rem;
+  color: var(--text-link);
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s;
+  font-weight: 700;
+}
+
+.ms-nav-link:hover, .ms-nav-link.active {
+  background: rgba(255, 107, 157, 0.15);
+  color: var(--pink-accent);
+}
+
+/* ═══════════════════════════════════════
+   MYSPACE TWO-COLUMN LAYOUT
+   ═══════════════════════════════════════ */
+.ms-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+/* ─── Sections (MySpace boxes) ─── */
+.ms-section {
+  background: var(--bg-section);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--border-section);
+  border-radius: var(--radius-lg);
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.ms-section-header {
+  background: rgba(255, 107, 157, 0.08);
+  padding: 0.6rem 1rem;
+  font-family: var(--font-myspace);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--pink-accent);
+  border-bottom: 1px solid rgba(255, 107, 157, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ms-section-icon {
+  font-size: 1rem;
+}
+
+.ms-friend-count {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-left: auto;
+}
+
+/* ═══════════════════════════════════════
+   LEFT COLUMN — Profile
+   ═══════════════════════════════════════ */
+.ms-left-col {
+  position: sticky;
+  top: 64px;
+}
+
+/* ─── Profile Card ─── */
+.ms-profile-name {
+  font-family: var(--font-myspace);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  padding: 1rem 1rem 0.5rem;
+  text-align: center;
+}
+
+.ms-profile-img-wrap {
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.ms-profile-img {
+  width: 100%;
+  max-width: 260px;
+  border-radius: var(--radius-md);
+  border: 3px solid var(--pink-accent);
+  box-shadow: 0 0 15px rgba(255, 107, 157, 0.2);
+}
+
+.ms-profile-status {
+  font-family: var(--font-myspace);
+  font-size: 0.8rem;
+  color: var(--green-live);
+  padding: 0.5rem 1rem 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  justify-content: center;
+}
+
+.ms-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green-live);
+  box-shadow: 0 0 8px var(--green-live);
+  animation: pulse-dot 2s infinite;
+}
+
+.ms-profile-tagline {
+  font-family: var(--font-myspace);
+  font-size: 0.82rem;
+  color: var(--pink-soft);
+  font-style: italic;
+  text-align: center;
+  padding: 0.25rem 1rem 0.75rem;
+}
+
+.ms-profile-details {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-myspace);
+  font-size: 0.78rem;
+}
+
+.ms-profile-details tr {
+  border-top: 1px solid rgba(255, 107, 157, 0.1);
+}
+
+.ms-profile-details td {
+  padding: 0.4rem 1rem;
+  color: var(--text-secondary);
+}
+
+.ms-detail-label {
+  color: var(--pink-accent);
+  font-weight: 700;
+  width: 80px;
+}
+
+/* ─── Music Player ─── */
+.ms-player-body {
+  padding: 0.75rem 1rem;
+}
+
+.ms-now-playing {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ms-track-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.ms-track-title {
+  font-family: var(--font-myspace);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ms-track-artist {
+  font-family: var(--font-myspace);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ─── Top Friends ─── */
+.ms-friends-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 0.75rem;
+}
+
+.ms-friend-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.5rem 0.25rem;
+  border-radius: var(--radius-md);
+  transition: all 0.2s;
+}
+
+.ms-friend-card:hover {
+  background: rgba(255, 107, 157, 0.08);
+  transform: translateY(-2px);
+}
+
+.ms-friend-img {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--pink-accent);
+  object-fit: cover;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.ms-friend-card:hover .ms-friend-img {
+  border-color: var(--text-link);
+  box-shadow: 0 0 12px rgba(127, 255, 0, 0.2);
+}
+
+.ms-friend-name {
+  font-family: var(--font-myspace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-link);
+  margin-top: 0.3rem;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* ═══════════════════════════════════════
+   RIGHT COLUMN — Projects
+   ═══════════════════════════════════════ */
+.ms-right-col {
+  min-width: 0;
+}
+
+/* ─── About Me ─── */
+.ms-about-text {
+  font-family: var(--font-myspace);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  padding: 1rem;
+  line-height: 1.6;
+}
+
+/* ─── Toolbar ─── */
+.ms-toolbar {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem 0;
+}
+
+.ms-search-box {
+  flex: 1;
+}
+
+.ms-search-box input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-myspace);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.ms-search-box input::placeholder {
+  color: var(--text-muted);
+}
+
+.ms-search-box input:focus {
+  border-color: var(--pink-accent);
+}
+
+.ms-toolbar select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0.5rem 1.5rem 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-myspace);
+  font-size: 0.85rem;
+  cursor: pointer;
+  outline: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%237a6e96' stroke-width='2.5' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+  background-size: 14px;
+}
+
+.ms-toolbar select:focus {
+  border-color: var(--pink-accent);
+}
+
+.ms-toolbar select option {
+  background: #fff;
+}
+
+/* ─── Project Grid ─── */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  padding: 0.75rem 1rem 1rem;
+}
+
+/* ─── Project Card ─── */
+.project-card {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 160px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s, box-shadow 0.25s;
+  animation: cardFadeIn 0.4s ease-out both;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 5%, var(--pink-accent) 50%, transparent 95%);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 107, 157, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 107, 157, 0.08);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.card-content { flex: 1; }
+
+.card-title {
+  font-family: var(--font-myspace);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+.card-desc {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(255, 107, 157, 0.08);
+}
+
+.card-date {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--pink-soft);
+  opacity: 0.5;
+}
+
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.card-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background: rgba(196, 181, 253, 0.06);
+  border: 1px solid rgba(196, 181, 253, 0.08);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.card-action-btn svg {
+  width: 13px;
+  height: 13px;
+}
+
+.card-action-btn:hover {
+  background: rgba(255, 107, 157, 0.15);
+  border-color: rgba(255, 107, 157, 0.3);
+  color: var(--pink-accent);
+}
+
+/* ─── Status Badges ─── */
+.card-status-badge {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.card-status-badge::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+}
+
+.status-external {
+  background: rgba(52, 211, 153, 0.08);
+  color: var(--green-live);
+  border: 1px solid rgba(52, 211, 153, 0.15);
+}
+
+.status-external::before {
+  background: var(--green-live);
+  box-shadow: 0 0 5px var(--green-live);
+  animation: pulse-dot 2.5s infinite;
+}
+
+.status-internal {
+  background: rgba(251, 191, 36, 0.06);
+  color: var(--amber-internal);
+  border: 1px solid rgba(251, 191, 36, 0.12);
+}
+
+.status-internal::before {
+  background: var(--amber-internal);
+}
+
+/* ─── Empty State ─── */
+.empty-state {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  color: var(--text-muted);
+  font-family: var(--font-myspace);
+}
+
+/* ═══════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════ */
+.ms-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem 1rem 1.5rem;
+}
+
+.ms-footer span {
+  font-family: var(--font-myspace);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.4rem 1.25rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 107, 157, 0.15);
+}
+
+/* ═══════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════ */
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════ */
+@media (max-width: 900px) {
+  .ms-container {
+    grid-template-columns: 1fr;
+  }
+
+  .ms-left-col {
+    position: static;
+  }
+
+  .ms-nav-links {
+    display: none;
+  }
+
+  .ms-friends-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .ms-friends-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ms-profile-name {
+    font-size: 1.2rem;
+  }
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: rgba(15, 10, 26, 0.5); }
+::-webkit-scrollbar-thumb { background: rgba(255, 107, 157, 0.2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 107, 157, 0.4); }
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(255, 107, 157, 0.3);
+  color: #fff;
+}

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diana's MySpace</title>
+  <meta name="description" content="Diana Nicholas — MySpace-style project playground with Hello Kitty vibes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ═══ TILED STAR BACKGROUND ═══ -->
+  <div id="star-bg"></div>
+
+  <!-- ═══ MYSPACE NAV BAR ═══ -->
+  <nav class="ms-nav">
+    <div class="ms-nav-inner">
+      <span class="ms-logo">Diana<span class="ms-logo-accent">Space</span></span>
+      <div class="ms-nav-links">
+        <a href="#" class="ms-nav-link active">Home</a>
+        <a href="#" class="ms-nav-link">Browse</a>
+        <a href="#" class="ms-nav-link">Search</a>
+        <a href="#" class="ms-nav-link">Mail</a>
+        <a href="#" class="ms-nav-link">Blog</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ MAIN MYSPACE LAYOUT ═══ -->
+  <div class="ms-container">
+
+    <!-- ═══ LEFT COLUMN — Profile ═══ -->
+    <aside class="ms-left-col">
+
+      <!-- Profile Card -->
+      <div class="ms-section ms-profile-card">
+        <h2 class="ms-profile-name">Diana Nicholas</h2>
+        <div class="ms-profile-img-wrap">
+          <img src="avatar.png" alt="Diana Nicholas" class="ms-profile-img">
+        </div>
+        <div class="ms-profile-status">
+          <span class="ms-status-dot"></span> Online Now!
+        </div>
+        <div class="ms-profile-tagline">"Building cool things, one prompt at a time 🎀"</div>
+        <table class="ms-profile-details">
+          <tr><td class="ms-detail-label">Mood:</td><td>✨ creative</td></tr>
+          <tr><td class="ms-detail-label">Status:</td><td>vibing & coding</td></tr>
+          <tr><td class="ms-detail-label">Here for:</td><td>Networking, Making Cool Stuff</td></tr>
+          <tr><td class="ms-detail-label">Hometown:</td><td>The Internet</td></tr>
+          <tr><td class="ms-detail-label">Zodiac:</td><td>🎀</td></tr>
+        </table>
+      </div>
+
+      <!-- Music Player -->
+      <div class="ms-section ms-music-player">
+        <div class="ms-section-header">
+          <span class="ms-section-icon">♫</span> Diana's Song
+        </div>
+        <div class="ms-player-body">
+          <div class="ms-now-playing">
+            <div class="ms-track-info">
+              <span class="ms-track-title">♫ U Smile</span>
+              <span class="ms-track-artist">Justin Bieber</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Top Friends -->
+      <div class="ms-section ms-friends">
+        <div class="ms-section-header">
+          <span class="ms-section-icon">♥</span> Diana's Top Friends
+          <span class="ms-friend-count">(5)</span>
+        </div>
+        <div class="ms-friends-grid">
+          <a href="#" class="ms-friend-card">
+            <img src="my-melody.png" alt="My Melody" class="ms-friend-img">
+            <span class="ms-friend-name">My Melody</span>
+          </a>
+          <a href="#" class="ms-friend-card">
+            <img src="keroppi.png" alt="Keroppi" class="ms-friend-img">
+            <span class="ms-friend-name">Keroppi</span>
+          </a>
+          <a href="#" class="ms-friend-card">
+            <img src="chococat.png" alt="Chococat" class="ms-friend-img">
+            <span class="ms-friend-name">Chococat</span>
+          </a>
+          <a href="#" class="ms-friend-card">
+            <img src="tuxedosam.png" alt="Tuxedosam" class="ms-friend-img">
+            <span class="ms-friend-name">Tuxedosam</span>
+          </a>
+          <a href="#" class="ms-friend-card">
+            <img src="badtzmaru.png" alt="Badtz-Maru" class="ms-friend-img">
+            <span class="ms-friend-name">Badtz-Maru</span>
+          </a>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ═══ RIGHT COLUMN — Projects ═══ -->
+    <main class="ms-right-col">
+
+      <!-- About Me -->
+      <div class="ms-section ms-about">
+        <div class="ms-section-header">
+          <span class="ms-section-icon">★</span> About Me
+        </div>
+        <p class="ms-about-text">
+          hey!! thanks 4 checking out my page~ ☆ i'm diana and i build cool things with AI tools at Pilot. 
+          these r all the projects i've made so far!! feel free 2 click around & check them out. 
+          don't forget 2 add me!! xoxo 🎀💕
+        </p>
+      </div>
+
+      <!-- Search & Filter -->
+      <div class="ms-section ms-blurbs">
+        <div class="ms-section-header">
+          <span class="ms-section-icon">☆</span> My Projects
+          <span class="ms-friend-count" id="project-count"></span>
+        </div>
+        <div class="ms-toolbar">
+          <div class="ms-search-box">
+            <input type="text" id="search-input" placeholder="Search projects..." autocomplete="off">
+          </div>
+          <select id="filter-select">
+            <option value="all">All</option>
+            <option value="external">External</option>
+            <option value="internal">Internal</option>
+          </select>
+        </div>
+
+        <!-- Project Grid -->
+        <div class="project-grid" id="project-grid">
+          <!-- Cards rendered by JS -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="empty-state" style="display:none;">
+          <p>no projects found :(</p>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="ms-footer">
+    <span>Diana Nicholas · 2026 · Built with 🎀 & Antigravity</span>
+  </footer>
+
+  <script>
+    // ═══════════════════════════════════════
+    //   PROJECT DATA
+    // ═══════════════════════════════════════
+    const projects = [
+      {
+        title: "Partner Resource Hub",
+        description: "Central partner portal with 10+ subpages, brand assets, and onboarding resources",
+        date: "04.22.26",
+        status: "external",
+        tags: ["portal", "design-system"],
+        liveUrl: "https://partners.pilot.com/",
+        githubUrl: "https://github.com/Pilot-Design-Team/Partner-Hub",
+        color: "#7c3aed"
+      },
+      {
+        title: "Partner Perks & Recs Guide",
+        description: "Interactive searchable reference — 39 partners across 9 categories from Excel data",
+        date: "04.24.26",
+        status: "internal",
+        tags: ["interactive", "data"],
+        liveUrl: "https://partners.pilot.com/internal/partner-perks-guide/",
+        githubUrl: "https://github.com/Pilot-Design-Team/Partner-Hub",
+        color: "#6d28d9"
+      },
+      {
+        title: "SMB Salary Report Brief",
+        description: "BD partner sequence brief with Outreach-optimized copy buttons and UTM tracking",
+        date: "04.24.26",
+        status: "internal",
+        tags: ["outreach", "BD"],
+        liveUrl: "https://partners.pilot.com/internal/smb-salary-report-campaign/",
+        githubUrl: "https://github.com/Pilot-Design-Team/Partner-Hub",
+        color: "#8b5cf6"
+      },
+      {
+        title: "Capital Efficiency Index Brief",
+        description: "BD sequence brief with 3 partner-type email sequences and stat cards",
+        date: "04.27.26",
+        status: "internal",
+        tags: ["outreach", "BD"],
+        liveUrl: "https://partners.pilot.com/internal/capital-efficiency-index/",
+        githubUrl: "https://github.com/Pilot-Design-Team/Partner-Hub",
+        color: "#a78bfa"
+      },
+      {
+        title: "Founders Salary Survey Brief",
+        description: "Survey-based BD brief with Qualtrics survey links and partner outreach sequences",
+        date: "04.27.26",
+        status: "internal",
+        tags: ["survey", "BD"],
+        liveUrl: "https://partners.pilot.com/internal/founders-salary-quiz/",
+        githubUrl: "https://github.com/Pilot-Design-Team/Partner-Hub",
+        color: "#c084fc"
+      },
+      {
+        title: "SMB Financial Stack Campaign",
+        description: "Co-marketing campaign landing page for the Small Business Growth Fund report",
+        date: "04.23.26",
+        status: "external",
+        tags: ["campaign", "marketing"],
+        liveUrl: "https://partners.pilot.com/campaign/smb-financial-stack-brief/",
+        githubUrl: "https://github.com/Pilot-Design-Team/Partner-Hub",
+        color: "#7c3aed"
+      },
+      {
+        title: "How to Use Antigravity",
+        description: "Internal presentation page showcasing AI-powered development workflow for the marketing team",
+        date: "04.27.26",
+        status: "internal",
+        tags: ["presentation", "internal"],
+        liveUrl: "https://partners.pilot.com/internal/how-to-use-antigravity/",
+        githubUrl: "https://github.com/Pilot-Design-Team/Partner-Hub",
+        color: "#6d28d9"
+      },
+      {
+        title: "BD UTM Generator",
+        description: "Personalized UTM link builder for BD partner tracking and attribution",
+        date: "04.26.26",
+        status: "internal",
+        tags: ["tools", "tracking", "BD"],
+        liveUrl: "https://partners.pilot.com/internal/bd-utm-generator/",
+        githubUrl: "https://github.com/Pilot-Design-Team/Partner-Hub",
+        color: "#8b5cf6"
+      },
+      {
+        title: "Marketing UTM Generator",
+        description: "Marketing campaign UTM link builder with channel and content parameters",
+        date: "04.26.26",
+        status: "internal",
+        tags: ["tools", "tracking", "marketing"],
+        liveUrl: "https://partners.pilot.com/internal/marketing-utm-generator/",
+        githubUrl: "https://github.com/Pilot-Design-Team/Partner-Hub",
+        color: "#a78bfa"
+      }
+    ];
+
+    // ═══════════════════════════════════════
+    //   RENDER CARDS
+    // ═══════════════════════════════════════
+    const grid = document.getElementById('project-grid');
+    const searchInput = document.getElementById('search-input');
+    const filterSelect = document.getElementById('filter-select');
+    const emptyState = document.getElementById('empty-state');
+    const projectCount = document.getElementById('project-count');
+
+    function createCard(project, index) {
+      const card = document.createElement('div');
+      card.className = 'project-card';
+      card.style.setProperty('--card-accent', project.color);
+      card.style.animationDelay = `${index * 0.06}s`;
+
+      card.innerHTML = `
+        <div class="card-content">
+          <h3 class="card-title">${project.title}</h3>
+          <p class="card-desc">${project.description}</p>
+        </div>
+        <div class="card-footer">
+          <span class="card-date">${project.date}</span>
+          <div class="card-actions">
+            ${project.liveUrl ? `<a href="${project.liveUrl}" target="_blank" rel="noopener" class="card-action-btn" title="View Live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>` : ''}
+            ${project.githubUrl ? `<a href="${project.githubUrl}" target="_blank" rel="noopener" class="card-action-btn" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>` : ''}
+            <span class="card-status-badge status-${project.status}">${project.status === 'external' ? 'External' : 'Internal'}</span>
+          </div>
+        </div>
+      `;
+      return card;
+    }
+
+    function renderCards() {
+      const query = searchInput.value.toLowerCase().trim();
+      const filter = filterSelect.value;
+
+      grid.innerHTML = '';
+      let count = 0;
+
+      projects.forEach((project, i) => {
+        if (filter !== 'all' && project.status !== filter) return;
+        if (query) {
+          const haystack = project.title.toLowerCase() + ' ' + project.description.toLowerCase() + ' ' + project.tags.join(' ');
+          if (!haystack.includes(query)) return;
+        }
+        grid.appendChild(createCard(project, count));
+        count++;
+      });
+
+      emptyState.style.display = count === 0 ? 'flex' : 'none';
+      projectCount.textContent = `(${count})`;
+    }
+
+    searchInput.addEventListener('input', renderCards);
+    filterSelect.addEventListener('change', renderCards);
+    renderCards();
+  </script>
+</body>
+</html>
