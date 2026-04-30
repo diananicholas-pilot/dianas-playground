@@ -169,6 +169,19 @@ body {
   margin-left: auto;
 }
 
+.ms-project-count {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--pink-accent);
+  background: rgba(255, 107, 157, 0.12);
+  border: 1px solid rgba(255, 107, 157, 0.25);
+  padding: 0.15rem 0.65rem;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
 /* ═══════════════════════════════════════
    LEFT COLUMN — Profile
    ═══════════════════════════════════════ */
